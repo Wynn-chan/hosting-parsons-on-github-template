@@ -12,34 +12,38 @@ Re-arrange the blocks below so they print out "Hello World!"
 
 //new code
 
-<div id="sortableTrash" class="sortable-code"></div> 
-<div id="sortable" class="sortable-code"></div> 
+<div id="Codice 1-sortableTrash" class="sortable-code"></div> 
+<div id="Codice 1-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="Codice 1-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="Codice 1-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
 (function(){
-  var initial = "x, c = 10, 0
+  var initial = "x = int(input(&quot;Dammi un numero: &quot;))
 \n" +
-    "for i in range(0, x):
+    "for i in range(0, x, 1):
 \n" +
     "    c+= i
 \n" +
     "print(c)
 \n" +
-    "for j in range (0, y):
+    "x += y
 \n" +
     "#distractor
 \n" +
-    "x = c++
+    "i - x
 \n" +
     "#distractor
 \n" +
-    "x = y / 3#distractor";
+    "printa(a)
+\n" +
+    "#distractor
+\n" +
+    "for j in y:#distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "sortable",
+    "sortableId": "Codice 1-sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
@@ -48,15 +52,15 @@ Re-arrange the blocks below so they print out "Hello World!"
     "lang": "en",
     "show_feedback": true,
     "python3": true,
-    "trashId": "sortableTrash"
+    "trashId": "Codice 1-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#newInstanceLink").click(function(event){ 
+  $("#Codice 1-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#feedbackLink").click(function(event){ 
+  $("#Codice 1-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
   }); 
