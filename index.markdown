@@ -10,6 +10,63 @@ title: Multiple Parson's Problems on One Page
 ## Parsons 1 (Line Based Grader)
 Re-arrange the blocks below so they print out "Hello World!"
 
+new
+
+<div id="sortableTrash" class="sortable-code"></div> 
+<div id="sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "x, c = 10, 0
+\n" +
+    "for i in range(0, x):
+\n" +
+    "    c+= i
+\n" +
+    "print(c)
+\n" +
+    "for j in range (0, y):
+\n" +
+    "#distractor
+\n" +
+    "x = c++
+\n" +
+    "#distractor
+\n" +
+    "x = y / 3#distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "python3": true,
+    "trashId": "sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
+
+----
+
+
+
 <div id="p1-sortableTrash" class="sortable-code"></div>
 <div id="p1-sortable" class="sortable-code"></div>
 <div style="clear:both;"></div>
